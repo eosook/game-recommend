@@ -2,44 +2,40 @@
 
 ## Overview
 
-What is your app? Brief description in a couple of sentences.
-
-The site will give the user a game recommendation based on their favourite games. The 
-user will enter in 3(?) of their favourite games or games they want a new game of the same
-genre/style and receive a list back of game recommendations
+This is a site that gives game recommendations and keeps track of games they've played and games
+they would like to play.
 
 ### Problem
 
-Why is your app needed? Background information around any pain points or other reasons.
-
-As a gamer myself, I sometimes find times where I don't know what to play or there are
-times where im looking for games to play with friends. Generally its hard to find a good
-game recommendation as you can't really search for one on google, unless you know the 
-game already.
+With so many games to choose from these days, it can be time consuming finding a new game to you would like to play. This site makes it quick and
+easy to find game recommendations based on what you enjoy. People also 
 
 ### User Profile
 
-Who will use your app? How will they use it? Any special considerations that your app must take into account.
-
-People who are looking for their next game to play solo or with their friends.
+- Gamers:
+    - looking for a new game to play
+    - want to keep track of games they've played
+    - want to keep tracks of games they would like to play
 
 ### Features
 
 List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
 
-My app will take in a few game titles and return game titles back (maybe with their 
-metascore or a description).
+- As a user, I want to be able to see the most popular games lately.
+- As a user, I want game recommendations based on games i enjoy.
+
+- As a user, I want to be able to create an account to track games.
+- As a user, I want to be able to login to my account to manage my game lists.
+
+- As a logged in user, I want to be able to keep track of games i've played before.
+- As a logged in user, I want to be able to add new games to a (would-like-to-play) list.
     
 
 ## Implementation
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
-
 - React
-- TypeScript
-- MySQL
 - Express
 - Client libraries: 
     - react
@@ -48,31 +44,36 @@ List technologies that will be used in your app, including any libraries to save
 - Server libraries:
     - knex
     - express
-    - bcrypt for password hashing
 
 ### APIs
 
-List any external sources of data that will be used in your app.
-
 Game APIs with a list of games
     - IGDB api
-    - GiantBomb
 
 ### Sitemap
-
-List the pages of your app with brief descriptions. You can show this visually, or write it out.
 
 Home Page
     - will prompt user to enter games they enjoy
     - 3 bars in the middle to enter the games
+    - under the form, there'll be a currently popular games section
 
 Game Recommendation Page
     - appears after user inputs their favourite games
     - spits out a list of game recommendations
 
-Game Description
-    - might just be a small window that pops up to show the game description/info
-    
+Game Description Page
+    - shows the game description, provides in-game pictures.
+    - will be able to add the game to your already played list or would like to play list.
+
+Account Signup Page
+    - page to create a new profile
+
+Account Login Page
+    - page to login to an existing profile
+
+Profile
+    - shows 2 lists, games the user has played and games the user would like to play
+    - will be able to delete 
 
 ### Mockups
 
@@ -80,23 +81,23 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 
 ### Data
 
-Describe your data and the relationships between them. You can show this visually using diagrams, or write it out. 
-
 - GameList
     - id - int
     - title - string
     - company - string
     - genres - list
-    - score - int
 
+- user
+    - username - string
+    - password - string
+    - playedGames - list
+    - futureGames - list
 
 ### Endpoints
 
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
-
 **GET /gamelist**
 
-- get list of games
+- gets list of games
 
 Parameters: none;
 
@@ -106,14 +107,13 @@ RESPONSE:
         "id": 1,
         "title": Super Mario Bros,
         "publisher": Nintendo,
-        "rating/Metascore": 99,
         "genre": Platformer
     }
 ]
 
 **GET /gamelist/:id**
 
-- Get information of game
+- Gets information of the game
 
 Parameters: 
 - id or game title
@@ -124,12 +124,36 @@ RESPONSE:
         "id": 1,
         "title": Super Mario Bros,
         "publisher": Nintendo,
-        "rating/Metascore": 99,
         "genre": Platformer,
         "description": "It stars Mario and Luigi, two Italian plumbers"
     }
 ]
 
+**GET /profile/:profileId**
+
+- Gets profile of logged in user
+
+RESPONSE:
+    {
+        username: eosoo,
+        password: 123,
+        name: Eo Soo Kim,
+        playedGames: ["Super Mario Bros", "Legend of Zelda", "League of Legends", "Balatro"],
+        futureGames: []
+    }
+
+**POST /profile/:profileId**
+
+- updates the game lists of a profile.
+
+RESPONSE:
+    {
+        username: eosoo,
+        password: 123,
+        name: Eo Soo Kim,
+        playedGames: ["Super Mario Bros", "Legend of Zelda", "League of Legends", "Balatro"],
+        futureGames: ["Elden Ring"]
+    }
 
 ### Auth
 
@@ -170,10 +194,22 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
     - after games are given and user presses enter, a list of game recommendations will be given
     - create get /gamelist/:id endpoint
 
+- Feature: Account Signup/Login
+    - add account signup
+    - user will be able to login to that profile
+
+- Feature: Add games to account
+    - add functionality to add games to played list
+    - add functionality to add games to would like to play list
+
+- Feature: Add popular game section to Home Page
+    - add component to home page that shows popular games.
+
+- Bug Fixes
+
+- Demo Day
+
 ## Nice-to-haves
 
 Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
 
-- if possible, also add a section for more recently released games that the user might enjoy (not just highest rated games of the genres)
-
-- account feature - users can create an account to track what games they've player and their own rating of the game.
