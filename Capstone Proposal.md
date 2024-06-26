@@ -19,8 +19,6 @@ easy to find game recommendations based on what you enjoy. People also
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
-
 - As a user, I want to be able to see the most popular games lately.
 - As a user, I want game recommendations based on games i enjoy.
 
@@ -133,6 +131,9 @@ RESPONSE:
 
 - Gets profile of logged in user
 
+Parameters:
+    - profile id
+
 RESPONSE:
     {
         username: eosoo,
@@ -145,6 +146,10 @@ RESPONSE:
 **POST /profile/:profileId**
 
 - updates the game lists of a profile.
+
+parameters:
+    - profile id
+    - profile game lists
 
 RESPONSE:
     {

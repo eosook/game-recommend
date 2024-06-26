@@ -1,15 +1,11 @@
 import './HomePage.scss'
-import Header from '../../components/Header';
-import GamesForm from '../../components/GamesForm';
-import Footer from '../../components/Footer';
+import GamesForm from '../../components/GamesForm/GamesForm';
 
 function HomePage(){
     return (
-        <>
-            <Header />
+        <main className="main">
             <GamesForm />
-            <Footer />
-        </>
+        </main>
     )
 }
 

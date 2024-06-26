@@ -1,14 +1,10 @@
 import './RecommendationPage.scss'
-import Header from '../../components/Header';
-import GamesList from '../../components/GamesList';
-import Footer from '../../components/Footer';
+import GamesList from '../../components/GamesList/GamesList';
 
 function RecommendationPage(){
     return (
         <>
-            <Header />
             <GamesList />
-            <Footer />
         </>
     )
 }
