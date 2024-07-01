@@ -20,9 +20,12 @@ function GamesForm() {
       );
       let list = [];
       gameListData.data.forEach((game) => {
-        list.push(game.name);
+        console.log(game);
+        list.push({
+          id: game.id,
+          name: game.name
+        });
       });
-      console.log(list);
       setGameList(list);
     };
     getGameList();
