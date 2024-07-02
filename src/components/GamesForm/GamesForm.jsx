@@ -21,10 +21,7 @@ function GamesForm() {
       let list = [];
       gameListData.data.forEach((game) => {
         console.log(game);
-        list.push({
-          id: game.id,
-          name: game.name
-        });
+        list.push(game.name);
       });
       setGameList(list);
     };
@@ -39,8 +36,6 @@ function GamesForm() {
       <form className="games-form__form">
         <Combobox
           className="games-form__combobox"
-          hideCaret
-          hideEmptyPopup
           data={gameList}
           onChange={(value) => setGameTitle({ name: value })}
           onSelect={(value) => setFavGameOne(value)}
