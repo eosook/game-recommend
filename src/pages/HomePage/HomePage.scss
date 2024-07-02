@@ -1,7 +1,17 @@
 .main{
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 60vh;
     width: 100%;
+    gap: 2rem;
+    padding: 4rem;
+}
+
+.games-form{
+    width: 40%;
+}
+
+.related-search__list{
+    width: 40%;
+
 }
