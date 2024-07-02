@@ -10,7 +10,7 @@ export default function Genre({ genreId }) {
       const genreData = await axios.post(
         `http://localhost:8080/games/genre/${genreId}`
       );
-      setGenre(genreData.data[0].name);
+        setGenre(genreData.data[0].name);
     };
     getGenre();
   }, []);

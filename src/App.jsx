@@ -14,7 +14,6 @@ function App() {
           <Route path="/recommendations" element={<RecommendationPage />}></Route>
           <Route path="/description/:id" element={<DescriptionPage />}></Route>
         </Routes>
-        <Footer />
       </BrowserRouter>
     </>
   );

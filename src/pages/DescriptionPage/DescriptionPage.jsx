@@ -16,6 +16,7 @@ export default function DescriptionPage() {
   const [genres, setGenres] = useState([]);
   const [releaseDate, setReleaseDate] = useState(null);
   const [video, setVideo] = useState(null);
+  const [cover, setCover] = useState("");
 
   useEffect(() => {
     const getGame = async () => {
@@ -51,20 +52,58 @@ export default function DescriptionPage() {
         <h3>Login</h3>
       </header>
       <main className="game">
-        <div className="game-description">{description}</div>
-        <div className="game-rating">Rating: {rating}</div>
-        <div className="game-genres">
-          {genreIds.map((genreId, index) => {
-            return <Genre key={index} genreId={genreId} />;
-          })}
+        <div className="game-banner">
+          <div className="game-banner__genres">
+            {genreIds.map((genreId, index) => {
+              return <Genre key={index} genreId={genreId} />;
+            })}
+          </div>
         </div>
-        {/* <Genre genreIds={genreIds}/> */}
-        <div className="game-screenshots">
-        {screenshots.map((screenshot, index) => {
-            return <Screenshots key={index} screenshot={screenshot} />;
-          })}
+        <div className="game-body">
+          <img className="game-cover" src={cover}></img>
+          <div className="game-info">
+            <div className="game-info__description">{description}</div>
+            <div className="game">
+              <div className="game-release-date">
+                Release Date: {releaseDate}
+              </div>
+              <div className="game-info__rating">Rating: {rating}</div>
+            </div>
+          </div>
         </div>
-        <div className="game-release-date">Release Date: {releaseDate}</div>
+        <div className="game-buttons">
+          <button className="game-button">Played</button>
+          <button className="game-button">Play Later</button>
+          <button className="game-button">Youtube</button>
+        </div>
+        <div className="screenshots">
+          <h2 className="screenshots__header">Screenshots</h2>
+          <div className="screenshots__slider-wrapper">
+            <div className="screenshots__slider">
+              {screenshots.map((screenshot, index) => {
+                return (
+                  <Screenshots
+                    key={index}
+                    screenshot={screenshot}
+                    index={index}
+                    setCover={setCover}
+                  />
+                );
+              })}
+            </div>
+            <div className="screenshots__slider-nav">
+              {screenshots.map((screenshot, index) => {
+                if (index == 0) {
+                  return (<></>)
+                } else {
+                  return (
+                    <a href={`#slide-${index}`} className="screenshots__slider-bullet"></a>
+                  )
+                }
+              })}
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );

@@ -1,6 +1,43 @@
-.game-header{
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  border-bottom: 2px solid grey;
+}
+
+.game {
+  padding: 2rem 3rem;
+  &-banner {
+    height: 100px;
+    border-bottom: 2px solid grey;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 3rem;
+    &__genres{
+        margin-top: 1rem;
+        margin-left: 21rem;
+        display: flex;
+        gap: 1rem;
+    }
+  }
+  &-body {
+    display: flex;
+    padding-bottom: 2rem;
+  }
+  &-cover {
+    height: 250px;
+    width: 300px;
+    border-radius: 10px;
+    margin-top: -100px;
+  }
+  &-info {
+    padding: 1rem 2rem;
+    &__description{
+        margin-bottom: 1rem;
+    }
+  }
+  &-screenshots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }
