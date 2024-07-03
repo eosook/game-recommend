@@ -10,24 +10,26 @@ export default function SingleGame({ game }) {
   return (
     <button className="single-game" onClick={toGameDescriptionPage}>
       <img
-        className="single-game__screenshot"
+        className="single-game__cover"
         src={
-          game.screenshots !== undefined
-            ? `${game.screenshots[0].url.replace(/t_thumb/, "t_1080p")}`
+          game.cover !== undefined
+            ? `${game.cover.url.replace(/t_thumb/, "t_1080p")}`
             : ""
         }
       />
       <div className="single-game__info">
-        <h2 className="single-game__title">{game.name}</h2>
-        <p className="single-game__sumamry">{game.summary}</p>
-        <div className="single-game__genres">
-          {game.genres.map((genre) => {
-            return <p>{genre.name}</p>;
-          })}
+        <div className="single-game__info-container">
+          <h2 className="single-game__title">{game.name}</h2>
+          <p className="single-game__summary">{game.summary}</p>
         </div>
         <div className="single-game__rating">
-          {Math.floor(game.aggregated_rating)}
+          {Math.floor(game.total_rating)}
         </div>
+      </div>
+      <div className="single-game__genres">
+        {game.genres.map((genre) => {
+          return <p>{genre.name}</p>;
+        })}
       </div>
     </button>
   );

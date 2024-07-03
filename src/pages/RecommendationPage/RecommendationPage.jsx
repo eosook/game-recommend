@@ -48,6 +48,7 @@ function RecommendationPage() {
   }, []);
   return (
     <>
+      <h1 className="recommendation__header">Recommendations</h1>
       {mostCommonGenres.length > 0
         ? mostCommonGenres
         : commonGenres.length > 0

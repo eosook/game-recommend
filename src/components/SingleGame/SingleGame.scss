@@ -1,7 +1,13 @@
 .single-game{
     display: flex;
-    &__screenshot{
+    text-align: left;
+    justify-content: left;
+    &__cover{
         width: 120px;
         height: 100px;
+    }
+    &__info{
+        display: flex;
+        padding: 1rem;
     }
 }
