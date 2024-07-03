@@ -27,6 +27,11 @@ function RecommendationPage() {
       setCommonGenres([]);
       setMostCommonGenres([]);
       console.log(commonGenres);
+      games[1].genres.forEach((genre) => {
+        if (games[0].genres.includes(genre)) {
+          setCommonGenres((genreList) => [...genreList, genre]);
+        }
+      });
       games[2].genres.forEach((genre) => {
         if (
           games[0].genres.includes(genre) &&

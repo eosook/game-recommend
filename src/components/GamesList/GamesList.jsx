@@ -15,15 +15,18 @@ function GamesList({commonGenres}){
     }, [])
     useEffect (() => {
         const getPopularData = async () => {
-            const data = await axios.post(`http://localhost:8080/games/popular`);
+            const data = await axios.post(`http://localhost:8080/games/popular`, {genres: commonGenres});
             setPopularList(data.data);
             console.log(data.data);
         }
-        getPopularData();
-    }, [])
+        if (commonGenres.length > 0){
+            getPopularData();
+        }
+    }, [commonGenres])
     return (
         <>
-            <div>{popularList[0].game_id}</div>
+            {/* <div>{popularList[0]}</div>
+            <div>{popularList[1]}</div> */}
         </>
     )
 }
