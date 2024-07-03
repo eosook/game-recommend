@@ -1,0 +1,24 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-top: 4rem;
+    border: 1px solid black;
+    width: 40%;
+    height: 30%;
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem auto;
+    }
+    &__label{
+        margin-bottom: 0.25rem;
+    }
+    &__input{
+        margin-bottom: 1rem;
+    }
+    &__button{
+        padding: 0.25rem;
+    }
+}
