@@ -23,14 +23,16 @@ export default function DescriptionPage() {
       const gameData = await axios.post(
         `http://localhost:8080/games/${gameId.id}`
       );
+      console.log(gameData.data)
       setGame(gameData.data[0]);
       setName(gameData.data[0].name);
       setDescription(gameData.data[0].summary);
       setScreenshots(gameData.data[0].screenshots);
       setGenres([]);
       setGenreIds(gameData.data[0].genres);
-      if ("aggregated_rating" in gameData.data[0]) {
-        setRating(gameData.data[0].aggregated_rating);
+      setCover(gameData.data[0].cover.url.replace(/t_thumb/, "t_1080p"));
+      if ("total_rating" in gameData.data[0]) {
+        setRating(Math.floor(gameData.data[0].total_rating));
       }
       if ("videos" in gameData.data[0]) {
         setVideo(gameData.data[0].videos[0]);
@@ -86,20 +88,15 @@ export default function DescriptionPage() {
                     key={index}
                     screenshot={screenshot}
                     index={index}
-                    setCover={setCover}
                   />
                 );
               })}
             </div>
             <div className="screenshots__slider-nav">
               {screenshots.map((screenshot, index) => {
-                if (index == 0) {
-                  return (<></>)
-                } else {
                   return (
                     <a href={`#slide-${index}`} className="screenshots__slider-bullet"></a>
                   )
-                }
               })}
             </div>
           </div>
