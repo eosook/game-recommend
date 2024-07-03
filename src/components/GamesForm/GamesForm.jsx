@@ -10,11 +10,6 @@ export default function GamesForm({ setGameTitle, title, formNumber, gameCount }
         onChange={(e) => setGameTitle({ name: e.target.value })}
         placeholder="Enter your favourite game"
       ></input>
-      <div className="games-form__buttons">
-        <button className="games-form__submit" type="submit">
-          SUBMIT
-        </button>
-      </div>
     </form>
   );
 }
