@@ -3,7 +3,6 @@ import "./SingleGame.scss";
 
 export default function SingleGame({ game }) {
   const navigate = useNavigate();
-  console.log(game);
   const toGameDescriptionPage = () => {
     navigate(`/description/${game.id}`);
   };
