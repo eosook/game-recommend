@@ -1,13 +1,46 @@
+@use '../../styles/partials/fonts' as *;
+
+*{
+    font-family: $primary-font;
+}
+
 .main{
     gap: 2rem;
     padding: 4rem;
+    // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8) ), url(../../assets/images/3226135.jpg);
+    height: 100vh;
 }
 
-.games-form{
-    width: 40%;
+.favourite{
+    min-height: 500px;
+    width: 600px;
+    margin: 5rem auto;
+    border: 1px solid red;
+    border-radius: 10px 40px;
+    padding: 2rem 3rem;
+    &__inputs{
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    &__header{
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
 }
 
-.related-search__list{
-    width: 40%;
-
+.recommend-button{
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 3px grey;
+    &:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 5px grey;
+    }
+    &:active{
+        transform: translateY(2px);
+        box-shadow: 0 1px grey;
+    }
 }

@@ -1,22 +1,18 @@
 .games-form{
     &__form{
         display: flex;
-        margin: 1rem 0;
+        margin-bottom: 1rem;
     }
-    &__gameInput{
+    &__input{
         display: block;
-        margin: 1rem 0;
-    }
-
-    &__buttons{
-        width: 100%;
-        display: flex;
-        justify-content: right;
-    }
-
-    &__combobox{
-        overflow: hidden;
-        border: 1px solid black;
-        padding: 1rem;
+        width: 250px;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 5px 5px black;
+        background-color: white;
+        &:disabled{
+            box-shadow: none;
+            translate: 5px 5px;
+        }
     }
 }

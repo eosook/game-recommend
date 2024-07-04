@@ -16,7 +16,10 @@ function HomePage() {
 
   const toRecommendationPage = () => {
     navigate("/recommendations", {
-      state: { games: [favGameOne, favGameTwo, favGameThree], count: gameCount - 1},
+      state: {
+        games: [favGameOne, favGameTwo, favGameThree],
+        count: gameCount - 1,
+      },
     });
   };
 
@@ -51,46 +54,52 @@ function HomePage() {
   }
   return (
     <main className="main">
-      <div className="games-form">
-        <h2 className="games-form__header"></h2>
-        <GamesForm
-          setGameTitle={setGameTitle}
-          title={favGameOne}
-          formNumber={1}
-          gameCount={gameCount}
-        />
-        <GamesForm
-          setGameTitle={setGameTitle}
-          title={favGameTwo}
-          formNumber={2}
-          gameCount={gameCount}
-        />
-        <GamesForm
-          setGameTitle={setGameTitle}
-          title={favGameThree}
-          formNumber={3}
-          gameCount={gameCount}
-        />
-      </div>
-      <div className="related-search__list">
-        {gameList.map((game) => {
-          return (
-            <RelatedSearch
-              game={game}
+      <div className="favourite">
+        <h1 className="favourite__header">GameRec</h1>
+        <div className="favourite__inputs">
+          <div className="favourite__form">
+            <h2 className="favourite__header"></h2>
+            <GamesForm
               setGameTitle={setGameTitle}
-              selectGame={selectGame}
+              title={favGameOne}
+              formNumber={1}
               gameCount={gameCount}
             />
-          );
-        })}
+            <GamesForm
+              setGameTitle={setGameTitle}
+              title={favGameTwo}
+              formNumber={2}
+              gameCount={gameCount}
+            />
+            <GamesForm
+              setGameTitle={setGameTitle}
+              title={favGameThree}
+              formNumber={3}
+              gameCount={gameCount}
+            />
+
+            <button
+              className="recommend-button"
+              onClick={toRecommendationPage}
+              disabled={favGameOne == "" ? true : false}
+            >
+              Recommend
+            </button>
+          </div>
+          <div className="related-search__list">
+            {gameList.map((game) => {
+              return (
+                <RelatedSearch
+                  game={game}
+                  setGameTitle={setGameTitle}
+                  selectGame={selectGame}
+                  gameCount={gameCount}
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <button
-        className="recommend-button"
-        onClick={toRecommendationPage}
-        disabled={favGameOne == "" ? true : false}
-      >
-        Recommend
-      </button>
     </main>
   );
 }
