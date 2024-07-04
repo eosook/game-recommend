@@ -50,8 +50,11 @@ function RecommendationPage() {
     findCommonGenres();
   }, []);
   return (
-    <>
-      <h1 className="recommendation__header">Recommendations</h1>
+    <div className="recommendation">
+      <header>
+        <h1 className="recommendation__header">Recommendations</h1>
+      </header>
+      <div className="recommendation__list">
       <GamesList
         commonGenres={
           mostCommonGenres.length > 0
@@ -61,7 +64,8 @@ function RecommendationPage() {
             : genreList
         }
       />
-    </>
+      </div>
+    </div>
   );
 }
 

@@ -1,13 +1,47 @@
 .single-game{
     display: flex;
     text-align: left;
-    justify-content: left;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 3px 3px 5px rgb(254, 60, 60);
+    &:hover{
+        translate: -5px -5px;
+        box-shadow: 8px 8px 5px rgb(254, 60, 60);
+    }
+    &:active{
+        translate: 2px 2px;
+        box-shadow: 1px 1px 10px rgb(254, 60, 60);
+    }
     &__cover{
         width: 120px;
         height: 100px;
     }
     &__info{
         display: flex;
-        padding: 1rem;
+        padding: 0 1rem;
+    }
+    &__info-container{
+        padding: 0 1rem;
+    }
+    &__summary{
+        font-size: 11px;
+    }
+    &__genres{
+        font-size: 10px;
+        font-weight: 700;
+    }
+    &__rating{
+        font-weight: 700;
+        font-size: 20px;
+        height: 40px;
+        min-width: 40px;
+        background-color: #00CE7A;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
     }
 }

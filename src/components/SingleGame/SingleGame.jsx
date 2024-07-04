@@ -20,15 +20,15 @@ export default function SingleGame({ game }) {
         <div className="single-game__info-container">
           <h2 className="single-game__title">{game.name}</h2>
           <p className="single-game__summary">{game.summary}</p>
+          <div className="single-game__genres">
+            {game.genres.map((genre) => {
+              return <p>{genre.name}</p>;
+            })}
+          </div>
         </div>
         <div className="single-game__rating">
           {Math.floor(game.total_rating)}
         </div>
-      </div>
-      <div className="single-game__genres">
-        {game.genres.map((genre) => {
-          return <p>{genre.name}</p>;
-        })}
       </div>
     </button>
   );

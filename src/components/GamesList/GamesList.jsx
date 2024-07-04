@@ -2,6 +2,7 @@ import "./GamesList.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SingleGame from "../SingleGame/SingleGame";
+import Genre from "../Genre/Genre";
 
 function GamesList({ commonGenres }) {
   const [popularList, setPopularList] = useState([{ game_id: "", genres: [] }]);
@@ -26,22 +27,25 @@ function GamesList({ commonGenres }) {
       getPopularData();
     }
   }, [commonGenres]);
-  useEffect(() => {
-    const getGenreNames = async (genreId) => {
-      const genreData = await axios.post(
-        `http://localhost:8080/games/genre/${genreId}`
-      );
-      setGenreNameList((genreList) => [...genreList, genreData.data[0].name]);
-      console.log(genreData.data[0].name);
-    };
-    setGenreNameList([]);
-    commonGenres.forEach((genreId) => {
-      getGenreNames(genreId);
-    });
-  }, [commonGenres]);
+  //   useEffect(() => {
+  //     const getGenreNames = async (genreId) => {
+  //       const genreData = await axios.post(
+  //         `http://localhost:8080/games/genre/${genreId}`
+  //       );
+  //       setGenreNameList((genreList) => [...genreList, genreData.data[0].name]);
+  //     };
+  //     setGenreNameList([]);
+  //     commonGenres.forEach((genreId) => {
+  //       getGenreNames(genreId);
+  //     });
+  //   }, [commonGenres]);
   return (
     <div className="game-list">
-        {genreNameList}
+      {genreNameList}
+      <h3>You enjoy Playing :</h3>
+      {commonGenres.map((genreId, index) => {
+        return <Genre key={index} genreId={genreId} />;
+      })}
       {popularList.map((game) => {
         return <SingleGame game={game} />;
       })}
