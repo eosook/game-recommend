@@ -5,6 +5,7 @@ import RecommendationPage from "./pages/RecommendationPage/RecommendationPage";
 import DescriptionPage from "./pages/DescriptionPage/DescriptionPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/recommendations" element={<RecommendationPage />}></Route>
           <Route path="/description/:id" element={<DescriptionPage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/profile/:id" element={<ProfilePage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
