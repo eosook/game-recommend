@@ -57,7 +57,7 @@ export default function DescriptionPage() {
         <div className="game-banner">
           <div className="game-banner__genres">
             {genreIds.map((genreId, index) => {
-              return <Genre key={index} genreId={genreId} />;
+              return <Genre key={index} genreId={genreId} index={index}/>;
             })}
           </div>
         </div>

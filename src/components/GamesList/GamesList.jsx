@@ -43,9 +43,11 @@ function GamesList({ commonGenres }) {
     <div className="game-list">
       {genreNameList}
       <h3>You enjoy Playing :</h3>
-      {commonGenres.map((genreId, index) => {
-        return <Genre key={index} genreId={genreId} />;
-      })}
+      <div className="game-list__genres">
+        {commonGenres.map((genreId, index) => {
+          return <Genre key={index} genreId={genreId} index={index} />;
+        })}
+      </div>
       {popularList.map((game) => {
         return <SingleGame game={game} />;
       })}
