@@ -5,4 +5,22 @@
     border-radius: 20px;
     font-size: 10px;
     font-weight: 700;
+    min-width: 120px;
+}
+
+@mixin rating{
+    font-weight: 700;
+    font-size: 20px;
+    height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    background-color: #00CE7A;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin description-button{
+    
 }

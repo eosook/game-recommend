@@ -7,7 +7,6 @@ export default function SingleGame({ game }) {
   const toGameDescriptionPage = () => {
     navigate(`/description/${game.id}`);
   };
-  console.log(game.genres);
   return (
     <button className="single-game" onClick={toGameDescriptionPage}>
       <img
@@ -25,7 +24,7 @@ export default function SingleGame({ game }) {
           <div className="single-game__genres">
             {game.genres.map((genre, index) => {
               return (
-                <p
+                <p key={index}
                   className={
                     index == 0
                       ? `genre genre-color__one`
@@ -37,15 +36,18 @@ export default function SingleGame({ game }) {
                       ? `genre genre-color__four`
                       : index == 4
                       ? `genre genre-color__five`
+                      : index == 5
+                      ? `genre genre-color__six`
+                      : index == 6
+                      ? `genre genre-color__seven`
+                      : index == 7
+                      ? `genre genre-color__eight`
                       : `genre`
                   }
                 >
                   {genre.name}
                 </p>
               );
-              // return (
-              //   <Genre key={index} genreId={genre.id} index={index}/>
-              // )
             })}
           </div>
         </div>
