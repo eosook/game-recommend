@@ -10,6 +10,7 @@ function RecommendationPage() {
   const [commonGenres, setCommonGenres] = useState([]);
   const [mostCommonGenres, setMostCommonGenres] = useState([]);
   const { games, count } = location.state;
+  const [gameIds, setGameIds] = useState([])
 
   useEffect(() => {
     const findCommonGenres = async () => {
@@ -48,11 +49,18 @@ function RecommendationPage() {
       }
     };
     findCommonGenres();
+    setGameIds([]);
+    games.forEach((game) => {
+      if (game){
+        setGameIds((idList) => [...idList, game.id]);
+      }
+    })
   }, []);
   return (
     <div className="recommendation">
       <header>
         <h1 className="recommendation__header">Recommendations</h1>
+        <p>{gameIds}</p>
       </header>
       <div className="recommendation__list">
       <GamesList
@@ -63,6 +71,7 @@ function RecommendationPage() {
             ? commonGenres
             : genreList
         }
+        gameIds={gameIds}
       />
       </div>
     </div>
