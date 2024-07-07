@@ -1,3 +1,7 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+
 .login{
     display: flex;
     flex-direction: column;
@@ -19,6 +23,7 @@
         margin-bottom: 1rem;
     }
     &__button{
-        padding: 0.25rem;
+        @include button-submit;
+        padding: 0.5rem 1rem;
     }
 }

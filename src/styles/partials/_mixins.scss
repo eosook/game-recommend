@@ -21,6 +21,39 @@
     justify-content: center;
 }
 
-@mixin description-button{
-    
+@mixin button{
+    text-align: center;
+    margin: 5px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: lightgray;
+    text-shadow: 1px 1px white;
+    color: gray;
+    border-radius: 8px;
+    box-shadow: 0 4px gray;
+    cursor: pointer;
+    &:hover{
+        box-shadow: 0 5px gray;
+        translate: 0 -1px;
+    }
+    &:active{
+        box-shadow: 0 2px gray;
+        translate: 0 2px;
+    }
+}
+
+@mixin button-submit{
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 3px grey;
+    &:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 5px grey;
+    }
+    &:active{
+        transform: translateY(2px);
+        box-shadow: 0 1px grey;
+    }
 }

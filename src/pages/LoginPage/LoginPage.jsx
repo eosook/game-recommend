@@ -33,6 +33,10 @@ export default function LoginPage({setUser}) {
     navigate(-1);
   };
 
+  const toSignup = () => {
+    navigate("/signup");
+  };
+
   return (
     <div className="login">
       <div className="login__form">
@@ -42,6 +46,9 @@ export default function LoginPage({setUser}) {
         <input type="text" className="login__input" onChange={(e) => setPassword(e.target.value)}></input>
         <button className="login__button" onClick={checkLogin}>
           Login
+        </button>
+        <button className="login__button" onClick={toSignup}>
+          Signup
         </button>
       </div>
       <p className="login__error">{(successLogin == false) ? "You have entered a wrong username or password" : ""}</p>

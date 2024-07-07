@@ -1,0 +1,21 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  border-bottom: 1px solid grey;
+  padding: 1rem 2rem;
+  &__logo {
+    height: 220px;
+    width: 250px;
+  }
+  &-button {
+    @include button;
+    font-family: $game-font;
+    font-size: 1rem;
+  }
+}

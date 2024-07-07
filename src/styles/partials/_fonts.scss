@@ -26,4 +26,12 @@
     font-weight: 900;
   }
 
+@font-face{
+  font-family: PressStart;
+  src: url("../../assets/fonts/PressStart2P-Regular.ttf");
+  font-style: regular;
+  font-weight: 400;
+}
+
 $primary-font: Poppins, Arial, Helvetica, sans-serif;
+$game-font: PressStart, Arial, Helvetica, sans-serif;

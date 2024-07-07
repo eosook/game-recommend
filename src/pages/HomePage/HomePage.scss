@@ -1,4 +1,6 @@
+@use '../../styles/partials/colors' as *;
 @use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
 
 *{
     font-family: $primary-font;
@@ -6,8 +8,6 @@
 
 .main{
     gap: 2rem;
-    padding: 4rem;
-    // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8) ), url(../../assets/images/3226135.jpg);
     height: 100vh;
 }
 
@@ -30,17 +30,5 @@
 }
 
 .recommend-button{
-    width: 100%;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 3px grey;
-    &:hover{
-        transform: translateY(-2px);
-        box-shadow: 0 5px grey;
-    }
-    &:active{
-        transform: translateY(2px);
-        box-shadow: 0 1px grey;
-    }
+    @include button-submit;
 }

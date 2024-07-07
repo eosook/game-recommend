@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Genre from "../../components/Genre/Genre";
 import Screenshots from "../../components/Screenshots/Screenshots";
 
-export default function DescriptionPage() {
+export default function DescriptionPage({user}) {
   const gameId = useParams();
   const navigate = useNavigate();
   const [game, setGame] = useState({});
@@ -25,7 +25,6 @@ export default function DescriptionPage() {
       const gameData = await axios.post(
         `http://localhost:8080/games/${gameId.id}`
       );
-      console.log(gameData.data)
       setGame(gameData.data[0]);
       setName(gameData.data[0].name);
       setDescription(gameData.data[0].summary);
@@ -43,15 +42,14 @@ export default function DescriptionPage() {
         let date = new Date(gameData.data[0].first_release_date * 1000);
         setReleaseDate(date.toLocaleDateString("en-US"));
       }
-      console.log(gameData.data[0].genres);
     };
     getGame();
   }, []);
 
   const addPlayedGame = async () => {
     try {
-      const sendResponse = await axios.post('http://localhost:8080/profile/played_games/1', {
-        users_id: 1,
+      const sendResponse = await axios.post(`http://localhost:8080/profile/played_games/${user}`, {
+        users_id: user,
         igdb_id: `${gameId.id}`,
         title: name,
         cover_url: cover,
@@ -64,8 +62,8 @@ export default function DescriptionPage() {
 
   const addFutureGame = async () => {
     try {
-      const sendResponse = await axios.post('http://localhost:8080/profile/future_games/1', {
-        users_id: 1,
+      const sendResponse = await axios.post(`http://localhost:8080/profile/future_games/${user}`, {
+        users_id: user,
         igdb_id: `${gameId.id}`,
         title: name,
         cover_url: cover,
@@ -125,7 +123,7 @@ export default function DescriptionPage() {
             <div className="screenshots__slider-nav">
               {screenshots.map((screenshot, index) => {
                   return (
-                    <a href={`#slide-${index}`} className="screenshots__slider-bullet"></a>
+                    <a key={index} href={`#slide-${index}`} className="screenshots__slider-bullet"></a>
                   )
               })}
             </div>
