@@ -6,17 +6,30 @@ import { useNavigate } from "react-router-dom";
 export default function SignupPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [profiles, setProfiles] = useState([]);
-  const [successSignup, setSignup] = useState(null);
+  const [name, setName] = useState("");
+  const [failedSignup, setFailedSignup] = useState(null);
+  const [failedMessage, setFailedMessage] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const getProfiles = async () => {
-      const profileData = await axios.get("http://localhost:8080/profile");
-      setProfiles(profileData.data);
-    };
-    getProfiles();
-  }, []);
+
+  const signup = async () => {
+    try {
+      const signupData = await axios.post(`http://localhost:8080/profile`, {
+        user_name: username,
+        password: password,
+        name: name,
+      });
+      setFailedMessage("Signup Successful");
+      setTimeout(() => {
+        navigate('/login', { state: { previousLocation: location.pathname }});
+      }, 1500)
+    } catch (error){
+      console.log(error);
+      setFailedSignup(true)
+      setFailedMessage(error.response.data.message);
+      console.log(error.response.data.message)
+    }
+  }
 
   return (
     <div className="login">
@@ -34,19 +47,19 @@ export default function SignupPage() {
           className="login__input"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <label className="login__label">First Name:</label>
+        <label className="login__label">Name:</label>
         <input
           type="text"
           className="login__input"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         ></input>
-        <button className="login__button" >
+        <button className="login__button" onClick={signup}>
           Signup
         </button>
       </div>
       <p className="login__error">
-        {successSignup == false
-          ? "You have entered a wrong username or password"
+        {failedMessage
+          ? `${failedMessage}`
           : ""}
       </p>
     </div>
