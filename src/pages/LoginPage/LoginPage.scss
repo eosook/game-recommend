@@ -3,13 +3,10 @@
 @use '../../styles/partials/mixins' as *;
 
 .login{
+    @include input-container;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    padding-top: 4rem;
-    border: 1px solid black;
-    width: 40%;
-    height: 30%;
+    margin-top: 3rem;
 
     &__form{
         display: flex;

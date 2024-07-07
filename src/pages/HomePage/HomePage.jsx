@@ -57,7 +57,7 @@ function HomePage() {
   return (
     <main className="main">
       <div className="favourite">
-        <h1 className="favourite__header">GameRec</h1>
+        <h1 className="favourite__header">RECOMMEND A GAME</h1>
         <div className="favourite__inputs">
           <div className="favourite__form">
             <h2 className="favourite__header"></h2>

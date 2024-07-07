@@ -19,6 +19,9 @@ export default function HeaderProfile({ user, setUser }) {
     navigate(`/`);
   };
 
+  const toLastPage = () => {
+    navigate(-1);
+  };
   const logout = () => {
     setUser(null);
     if (location.pathname == `/profile/${user}`) {
@@ -30,12 +33,13 @@ export default function HeaderProfile({ user, setUser }) {
     return (
       <header className="header">
         <div className="header__route-buttons">
-          <button className="header-button" onClick={toHome}>HOME</button>
+          <button className="header__button" onClick={toHome}>HOME</button>
+          <button className="header__button" onClick={toLastPage}>BACK</button>
         </div>
-        <img className="header__logo" src={logo} />
+        <h2 className="header__logo" onClick={toHome}>GameRec</h2>
         <div className="header__profile-buttons">
-          <button className="header-button" onClick={toProfile}>PROFILE</button>
-          <button className="header-button" onClick={logout}>LOGOUT</button>
+          <button className="header__button header__button--blue" onClick={toProfile}>PROFILE</button>
+          <button className="header__button  header__button--red" onClick={logout}>LOGOUT</button>
         </div>
       </header>
     );
@@ -43,11 +47,12 @@ export default function HeaderProfile({ user, setUser }) {
     return (
       <header className="header">
         <div className="header__route-buttons">
-          <button className="header-button" onClick={toHome}>HOME</button>
+          <button className="header__button" onClick={toHome}>HOME</button>
+          <button className="header__button" onClick={toLastPage}>BACK</button>
         </div>
-        <img className="header__logo" src={logo} />
+        <h2 className="header__logo" onClick={toHome}>GameRec</h2>
         <div className="header__profile-buttons">
-          <button className="header-button" onClick={toLogin}>LOGIN</button>
+          <button className="header__button header__button--blue" onClick={toLogin}>LOGIN</button>
         </div>
       </header>
     );
