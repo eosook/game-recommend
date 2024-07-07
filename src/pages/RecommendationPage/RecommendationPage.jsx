@@ -1,5 +1,6 @@
 import "./RecommendationPage.scss";
 import GamesList from "../../components/GamesList/GamesList";
+import HeaderProfile from "../../components/HeaderProfile/HeaderProfile";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,7 +10,7 @@ function RecommendationPage() {
   const [genreList, setGenreList] = useState([]);
   const [commonGenres, setCommonGenres] = useState([]);
   const [mostCommonGenres, setMostCommonGenres] = useState([]);
-  const { games, count } = location.state;
+  const { games, count} = location.state;
   const [gameIds, setGameIds] = useState([])
 
   useEffect(() => {

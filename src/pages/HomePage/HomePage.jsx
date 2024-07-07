@@ -1,9 +1,10 @@
 import "./HomePage.scss";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import GamesForm from "../../components/GamesForm/GamesForm";
 import RelatedSearch from "../../components/RelatedSearch/RelatedSearch";
+import HeaderProfile from "../../components/HeaderProfile/HeaderProfile";
 
 function HomePage() {
   const [gameList, setGameList] = useState([]);
@@ -13,6 +14,7 @@ function HomePage() {
   const [gameCount, setGameCount] = useState(1);
   const [gameTitle, setGameTitle] = useState({ name: "" });
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toRecommendationPage = () => {
     navigate("/recommendations", {
