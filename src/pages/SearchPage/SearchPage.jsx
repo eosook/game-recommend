@@ -14,7 +14,6 @@ export default function SearchPage() {
         limit: 20,
       });
       let list = [];
-      console.log(gameListData.data);
       gameListData.data.forEach((game) => {
         list.push(game);
       });

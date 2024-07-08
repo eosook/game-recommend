@@ -76,12 +76,8 @@ export default function DescriptionPage({user}) {
 
   return (
     <div className="game-page">
-      <header className="game-header">
-        <img alt="back button"></img>
-        <h1 className="game-header__title">{name}</h1>
-        <h3>Login</h3>
-      </header>
       <main className="game">
+        <h1 className="game__title">{name}</h1>
         <div className="game-body">
           <img className="game-cover" src={cover}></img>
           <div className="game-info">

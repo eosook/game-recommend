@@ -2,19 +2,13 @@
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
 
-.game-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 3rem;
-  border-bottom: 2px solid grey;
-}
-
 .game {
-  padding: 0 3rem;
-  border: 1px solid black;
-  margin: 1rem auto;
+  @include input-container;
+  margin-top: 3rem;
   width: 90%;
+  &__title{
+    font-size: 2.5rem;
+  }
   &-banner {
     height: 100px;
     display: flex;

@@ -37,7 +37,7 @@ function App() {
             path="/profile/:id"
             element={<ProfilePage user={user} />}
           ></Route>
-          <Route path="/search" element={<SearchPage />}></Route>
+          <Route path="/search" element={<SearchPage user={user} />}></Route>
         </Routes>
       </BrowserRouter>
     </>

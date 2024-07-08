@@ -6,14 +6,7 @@ import Genre from "../Genre/Genre";
 
 function GamesList({ commonGenres, gameIds }) {
   const [popularList, setPopularList] = useState([{ game_id: "", genres: [] }]);
-
-  useEffect(() => {
-    const getGenreGames = async () => {
-      const data = await axios.post(`http://localhost:8080/games`);
-      setPopularList(data.data);
-    };
-    getGenreGames();
-  }, []);
+  
   useEffect(() => {
     const getPopularData = async () => {
       const data = await axios.post(`http://localhost:8080/games/popular`, {
@@ -21,6 +14,7 @@ function GamesList({ commonGenres, gameIds }) {
         ids: gameIds,
       });
       setPopularList(data.data);
+      console.log(data.data)
     };
     if (commonGenres.length > 0) {
       getPopularData();
