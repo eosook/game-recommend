@@ -3,7 +3,7 @@ import axios from 'axios'
 import {useEffect, useState} from 'react'
 import ProfileGame from '../ProfileGame/ProfileGame';
 
-export default function FutureGames({ id }){
+export default function FutureGames({ id, changeUser, refreshList, setRefreshList }){
     const [futureList, setFutureList] = useState([]);
 
     useEffect(() => {
@@ -12,12 +12,12 @@ export default function FutureGames({ id }){
             setFutureList(playedData.data)
         }
         getProfile();
-    }, [])
+    }, [refreshList])
     return (
         <div>
         {futureList.map((game, index) => {
             return (
-                <ProfileGame key={index} game={game} played={false}/>
+                <ProfileGame key={index} game={game} played={false} changeUser={changeUser} setRefreshList={setRefreshList}/>
             )
         })}
     </div>

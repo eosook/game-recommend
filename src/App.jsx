@@ -35,9 +35,9 @@ function App() {
           <Route path="/signup" element={<SignupPage user={user} />}></Route>
           <Route
             path="/profile/:id"
-            element={<ProfilePage user={user} />}
+            element={<ProfilePage user={user} changeUser={setUser}/>}
           ></Route>
-          <Route path="/search" element={<SearchPage user={user} />}></Route>
+          <Route path="/search" element={<SearchPage user={user}/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

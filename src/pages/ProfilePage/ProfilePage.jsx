@@ -5,8 +5,9 @@ import { useParams } from "react-router-dom";
 import FutureGames from "../../components/FutureGames/FutureGames";
 import PlayedGames from "../../components/PlayedGames/PlayedGames";
 
-export default function ProfilePage() {
+export default function ProfilePage({changeUser}) {
   const [user, setUser] = useState([]);
+  const [refreshList, setRefreshList] = useState(0);
   const { id } = useParams();
   useEffect(() => {
     const getProfile = async () => {
@@ -22,13 +23,13 @@ export default function ProfilePage() {
         <div className="profile__played">
           <h2 className="profile__list-header">Completed Games</h2>
           <div className="profile__played-list">
-            <PlayedGames id={id} />
+            <PlayedGames id={id} changeUser={changeUser} refreshList={refreshList} setRefreshList={setRefreshList}/>
           </div>
         </div>
         <div className="profile__future">
           <h2 className="profile__list-header">Future Gaming Wishlist</h2>
           <div className="future-list">
-            <FutureGames id={id} />
+            <FutureGames id={id} changeUser={changeUser} refreshList={refreshList} setRefreshList={setRefreshList}/>
           </div>
         </div>
       </div>
