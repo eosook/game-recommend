@@ -1,0 +1,24 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.search{
+    @include input-container;
+    margin-top: 3rem;
+    &__bar{
+        width: 100%;
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+    &__button{
+        height: 50px;
+        padding: 0 0.5rem;
+        width: 45%;
+    }
+}

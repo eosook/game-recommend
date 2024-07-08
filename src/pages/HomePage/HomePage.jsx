@@ -27,10 +27,10 @@ function HomePage() {
 
   useEffect(() => {
     const getGameList = async () => {
-      const gameListData = await axios.post(
-        `http://localhost:8080/games`,
-        gameTitle
-      );
+      const gameListData = await axios.post(`http://localhost:8080/games`, {
+        gameTitle: gameTitle,
+        limit: 5,
+      });
       let list = [];
       gameListData.data.forEach((game) => {
         list.push(game);
