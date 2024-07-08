@@ -21,7 +21,7 @@ export default function ProfilePage({changeUser}) {
       <h1 className="profile__header">Hello, {user.name}</h1>
       <div className="profile__lists-container">
         <div className="profile__played">
-          <h2 className="profile__list-header">Completed Games</h2>
+          <h2 className="profile__list-header">Games I've Played</h2>
           <div className="profile__played-list">
             <PlayedGames id={id} changeUser={changeUser} refreshList={refreshList} setRefreshList={setRefreshList}/>
           </div>

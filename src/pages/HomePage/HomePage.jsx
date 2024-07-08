@@ -93,9 +93,10 @@ function HomePage() {
             </button>
           </div>
           <div className="related-search__list">
-            {gameList.map((game) => {
+            {gameList.map((game, index) => {
               return (
                 <RelatedSearch
+                  key={index}
                   game={game}
                   setGameTitle={setGameTitle}
                   selectGame={selectGame}

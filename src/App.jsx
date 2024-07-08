@@ -8,11 +8,41 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import HeaderProfile from "./components/HeaderProfile/HeaderProfile";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import axios from "axios";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [userPlayedList, setUserPlayedList] = useState([]);
+  const [userFutureList, setUserFutureList] = useState([]);
+
+  useEffect(() => {
+    const getPlayedList = async () => {
+      const listData = await axios.get(`http://localhost:8080/profile/played_games/${user}`);
+      let list = [];
+      setUserPlayedList([])
+      listData.data.forEach((game) => {
+        list.push(game.igdb_id);
+      })
+      console.log(list);
+      setUserPlayedList(list)
+    }
+    const getFutureList = async () => {
+      const listData = await axios.get(`http://localhost:8080/profile/future_games/${user}`);
+      let list = [];
+      setUserFutureList([])
+      listData.data.forEach((game) => {
+        list.push(game.igdb_id);
+      })
+      console.log(list);
+      setUserFutureList(list)
+    }
+    if (user){
+      getPlayedList();
+      getFutureList();
+    }
+  }, [user])
 
   return (
     <>
@@ -27,7 +57,7 @@ function App() {
             ></Route>
             <Route
               path="/description/:id"
-              element={<DescriptionPage user={user} />}
+              element={<DescriptionPage user={user} userPlayedList={userPlayedList} userFutureList={userFutureList}/>}
             ></Route>
             <Route
               path="/login"
