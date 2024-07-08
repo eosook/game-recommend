@@ -17,7 +17,7 @@ export default function FutureGames({ id }){
         <div>
         {futureList.map((game, index) => {
             return (
-                <ProfileGame key={index} game={game}/>
+                <ProfileGame key={index} game={game} played={false}/>
             )
         })}
     </div>

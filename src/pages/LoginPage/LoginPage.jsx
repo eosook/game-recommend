@@ -39,7 +39,7 @@ export default function LoginPage({ setUser }) {
 
   return (
     <div className="login">
-      <h1>LOGIN</h1>
+      <h1 className="login__header">LOGIN</h1>
       <div className="login__form">
         <label className="login__label">Username:</label>
         <input

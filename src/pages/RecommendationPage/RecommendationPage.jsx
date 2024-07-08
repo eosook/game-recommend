@@ -17,7 +17,6 @@ function RecommendationPage() {
     const findCommonGenres = async () => {
       if (count == 1) {
         setCommonGenres(games[0].genres);
-        console.log(games[0].genres);
       } else if (count == 2) {
         setGenreList(games[0].genres);
         setCommonGenres([]);
@@ -61,7 +60,6 @@ function RecommendationPage() {
     <div className="recommendation">
       <header>
         <h1 className="recommendation__header">Recommendations</h1>
-        <p>{gameIds}</p>
       </header>
       <div className="recommendation__list">
       <GamesList

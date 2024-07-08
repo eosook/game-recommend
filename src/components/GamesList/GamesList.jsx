@@ -21,7 +21,6 @@ function GamesList({ commonGenres, gameIds }) {
         ids: gameIds,
       });
       setPopularList(data.data);
-      console.log(data.data)
     };
     if (commonGenres.length > 0) {
       getPopularData();

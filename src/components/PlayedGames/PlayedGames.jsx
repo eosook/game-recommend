@@ -17,7 +17,7 @@ export default function PlayedGames({ id }){
         <div>
             {playedList.map((game, index) => {
                 return (
-                    <ProfileGame key={index} game={game}/>
+                    <ProfileGame key={index} game={game} played={true}/>
                 )
             })}
         </div>

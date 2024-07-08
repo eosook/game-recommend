@@ -1,0 +1,19 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.profile{
+    &__header{
+        margin: 1rem 3rem;
+    }
+    &__lists-container{
+        @include input-container;
+        display: flex;
+        padding: 3rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__played{
+        width: 60%;
+    }
+}

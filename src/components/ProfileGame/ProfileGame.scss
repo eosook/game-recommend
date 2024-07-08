@@ -4,25 +4,41 @@
 
 .profile-game{
     display: flex;
+    width: 300px;
     text-align: left;
     padding: 1rem;
     margin-top: 1rem;
     border-radius: 20px;
     border: none;
-    box-shadow: 3px 3px 5px $box-shadow-color;
-    &:hover{
-        translate: -5px -5px;
-        box-shadow: 8px 8px 5px $box-shadow-color;
-    }
-    &:active{
-        translate: 2px 2px;
-        box-shadow: 1px 1px 10px $box-shadow-color;
-    }
     &__image{
         min-width: 80px;
         height: 100px;
     }
     &__title{
+        margin-left: 1rem;
+    }
+}
 
+.played-shadow{
+    box-shadow: 3px 3px 5px $box-shadow-color-blue;
+    &:hover{
+        translate: -5px -5px;
+        box-shadow: 8px 8px 5px $box-shadow-color-blue;
+    }
+    &:active{
+        translate: 2px 2px;
+        box-shadow: 1px 1px 10px $box-shadow-color-blue;
+    }
+}
+
+.future-shadow{
+    box-shadow: 3px 3px 5px $box-shadow-color-yellow;
+    &:hover{
+        translate: -5px -5px;
+        box-shadow: 8px 8px 5px $box-shadow-color-yellow;
+    }
+    &:active{
+        translate: 2px 2px;
+        box-shadow: 1px 1px 10px $box-shadow-color-yellow;
     }
 }
