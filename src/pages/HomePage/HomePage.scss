@@ -11,6 +11,14 @@
     padding: 3rem;
     min-height: 100vh;
     background-color: $primary-color_four;
+    &__button{
+        @include button;
+        font-family: $game-font;
+        color: black;
+        margin: 4rem auto 0;
+        display: block;
+        width: 400px;
+    }
 }
 
 .favourite{

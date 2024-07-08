@@ -25,6 +25,10 @@ function HomePage() {
     });
   };
 
+  const toSearchPage = () => {
+    navigate("/search");
+  }
+
   useEffect(() => {
     const getGameList = async () => {
       const gameListData = await axios.post(`http://localhost:8080/games`, {
@@ -101,6 +105,7 @@ function HomePage() {
             })}
           </div>
         </div>
+        <button className="main__button" onClick={toSearchPage}>SEARCH FOR A GAME</button>
       </div>
     </main>
   );

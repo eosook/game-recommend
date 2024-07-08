@@ -29,7 +29,7 @@ export default function SearchPage() {
   };
   return (
     <div className="search">
-        <h1 className="search__header">Search for a Game:</h1>
+        <h1 className="search__header">SEARCH FOR A GAME</h1>
       <div>
         <input
         className="search__bar"

@@ -13,7 +13,12 @@
         width: 90%;
         margin: 0 auto;
     }
+    &__list-header{
+        font-size: 1.25rem;
+        margin-left: 0.75rem;
+        font-family: $game-font;
+    }
     &__played{
-        width: 60%;
+        width: 70%;
     }
 }

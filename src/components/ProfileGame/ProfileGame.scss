@@ -4,18 +4,30 @@
 
 .profile-game{
     display: flex;
-    width: 300px;
-    text-align: left;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 20px;
-    border: none;
+    &__button{
+        display: flex;
+        width: 260px;
+        text-align: left;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 20px;
+        border: none;
+    }
     &__image{
         min-width: 80px;
         height: 100px;
     }
     &__title{
         margin-left: 1rem;
+    }
+    &__delete{
+        margin-left: 0.5rem;
+        margin-top: 1.5rem;
+        width: 40px;
+        height: 40px;
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
 

@@ -18,27 +18,29 @@ function App() {
     <>
       <BrowserRouter>
         <HeaderProfile user={user} setUser={setUser} />
-        <Routes>
-          <Route path="/" element={<HomePage user={user} />}></Route>
-          <Route
-            path="/recommendations"
-            element={<RecommendationPage user={user} />}
-          ></Route>
-          <Route
-            path="/description/:id"
-            element={<DescriptionPage user={user} />}
-          ></Route>
-          <Route
-            path="/login"
-            element={<LoginPage user={user} setUser={setUser} />}
-          ></Route>
-          <Route path="/signup" element={<SignupPage user={user} />}></Route>
-          <Route
-            path="/profile/:id"
-            element={<ProfilePage user={user} changeUser={setUser}/>}
-          ></Route>
-          <Route path="/search" element={<SearchPage user={user}/>}></Route>
-        </Routes>
+        <main className="main__background">
+          <Routes>
+            <Route path="/" element={<HomePage user={user} />}></Route>
+            <Route
+              path="/recommendations"
+              element={<RecommendationPage user={user} />}
+            ></Route>
+            <Route
+              path="/description/:id"
+              element={<DescriptionPage user={user} />}
+            ></Route>
+            <Route
+              path="/login"
+              element={<LoginPage user={user} setUser={setUser} />}
+            ></Route>
+            <Route path="/signup" element={<SignupPage user={user} />}></Route>
+            <Route
+              path="/profile/:id"
+              element={<ProfilePage user={user} changeUser={setUser} />}
+            ></Route>
+            <Route path="/search" element={<SearchPage user={user} />}></Route>
+          </Routes>
+        </main>
       </BrowserRouter>
     </>
   );

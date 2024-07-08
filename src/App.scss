@@ -1,3 +1,7 @@
+@use "./styles/partials/colors" as *;
+@use "./styles/partials/fonts" as *;
+@use "./styles/partials/mixins" as *;
+
 //global resets
 *,
 *::before,
@@ -8,3 +12,8 @@
   margin: 0;
   padding: 0;
 }
+
+.main__background{
+  background-color: $primary-color_four;
+  padding-top: 2rem;
+} 

@@ -1,6 +1,7 @@
 import "./ProfileGame.scss";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import trashcan from "../../assets/images/trashcan.png"
 
 export default function ProfileGame({ game, played, userId, changeUser, setRefreshList }) {
   const navigate = useNavigate();
@@ -26,10 +27,10 @@ export default function ProfileGame({ game, played, userId, changeUser, setRefre
     setRefreshList((prev) => prev + 1);
   };
   return (
-    <div>
+    <div className="profile-game">
       <button
         className={
-          played ? "profile-game played-shadow" : "profile-game future-shadow"
+          played ? "profile-game__button played-shadow" : "profile-game__button future-shadow"
         }
         onClick={toGameDescriptionPage}
       >
@@ -38,9 +39,7 @@ export default function ProfileGame({ game, played, userId, changeUser, setRefre
           <h3 className="profile-game__title">{game.title}</h3>
         </div>
       </button>
-      <button onClick={played ? removePlayedGame : removeFutureGame}>
-        remove
-      </button>
+      <img className="profile-game__delete" onClick={played ? removePlayedGame : removeFutureGame} src={trashcan}></img>
     </div>
   );
 }
