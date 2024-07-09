@@ -4,7 +4,6 @@
 
 .search{
     @include input-container;
-    margin-top: 3rem;
     &__header{
         font-family: $game-font;
         font-size: 1.5rem;
