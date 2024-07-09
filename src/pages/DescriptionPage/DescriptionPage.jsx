@@ -6,30 +6,35 @@ import { useNavigate } from "react-router-dom";
 import Genre from "../../components/Genre/Genre";
 import Screenshots from "../../components/Screenshots/Screenshots";
 
-export default function DescriptionPage({user}) {
+export default function DescriptionPage({
+  user,
+  userPlayedList,
+  userFutureList,
+  setUserPlayedList,
+  setUserFutureList
+}) {
   const gameId = useParams();
-  const navigate = useNavigate();
-  const [game, setGame] = useState({});
   const [name, setName] = useState(null);
   const [description, setDescription] = useState(null);
   const [rating, setRating] = useState("N/A");
   const [screenshots, setScreenshots] = useState([]);
   const [genreIds, setGenreIds] = useState([]);
-  const [genres, setGenres] = useState([]);
   const [releaseDate, setReleaseDate] = useState(null);
   const [video, setVideo] = useState(null);
   const [cover, setCover] = useState("");
+  const [platforms, setPlatforms] = useState([]);
+  const [played, setPlayed] = useState(false);
+  const [future, setFuture] = useState(false);
 
   useEffect(() => {
     const getGame = async () => {
       const gameData = await axios.post(
         `http://localhost:8080/games/${gameId.id}`
       );
-      setGame(gameData.data[0]);
+      console.log(gameData.data);
       setName(gameData.data[0].name);
       setDescription(gameData.data[0].summary);
       setScreenshots(gameData.data[0].screenshots);
-      setGenres([]);
       setGenreIds(gameData.data[0].genres);
       setCover(gameData.data[0].cover.url.replace(/t_thumb/, "t_1080p"));
       if ("total_rating" in gameData.data[0]) {
@@ -42,37 +47,53 @@ export default function DescriptionPage({user}) {
         let date = new Date(gameData.data[0].first_release_date * 1000);
         setReleaseDate(date.toLocaleDateString("en-US"));
       }
+      if (userPlayedList.includes('' + gameData.data[0].id)){
+        setPlayed(true);
+      }
+      if (userFutureList.includes('' + gameData.data[0].id)){
+        setFuture(true);
+      }
     };
     getGame();
   }, []);
 
   const addPlayedGame = async () => {
     try {
-      const sendResponse = await axios.post(`http://localhost:8080/profile/played_games/${user}`, {
-        users_id: user,
-        igdb_id: `${gameId.id}`,
-        title: name,
-        cover_url: cover,
-      })
+      const sendResponse = await axios.post(
+        `http://localhost:8080/profile/played_games/${user}`,
+        {
+          users_id: user,
+          igdb_id: `${gameId.id}`,
+          title: name,
+          cover_url: cover,
+        }
+      );
+      setUserPlayedList((prev) => [...prev, '' + gameId.id]);
+      setPlayed(true);
       return sendResponse;
-    } catch(error){
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const addFutureGame = async () => {
     try {
-      const sendResponse = await axios.post(`http://localhost:8080/profile/future_games/${user}`, {
-        users_id: user,
-        igdb_id: `${gameId.id}`,
-        title: name,
-        cover_url: cover,
-      })
+      const sendResponse = await axios.post(
+        `http://localhost:8080/profile/future_games/${user}`,
+        {
+          users_id: user,
+          igdb_id: `${gameId.id}`,
+          title: name,
+          cover_url: cover,
+        }
+      );
+      setUserFutureList((prev) => [...prev, '' + gameId.id]);
+      setFuture(true);
       return sendResponse;
-    } catch(error){
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div className="game-page">
@@ -91,14 +112,25 @@ export default function DescriptionPage({user}) {
           </div>
         </div>
         <div className="game__buttons">
-          <button className="game__button" onClick={addPlayedGame}>Played</button>
-          <button className="game__button" onClick={addFutureGame}>Play Later</button>
-          <button className="game__button" onClick={() => window.open(`https://www.youtube.com/watch?v=${video}`, '_blank')}  >Youtube</button>
+          <button className={(played) ? `game__button game__button--green` : 'game__button'} onClick={addPlayedGame} disabled={played}>
+            {(played) ? "Added" : "Played"}
+          </button>
+          <button className={(future) ? `game__button game__button--green` : 'game__button'} onClick={addFutureGame} disabled={future}>
+            {(future) ? "Added" : "Played"}
+          </button>
+          <button
+            className="game__button"
+            onClick={() =>
+              window.open(`https://www.youtube.com/watch?v=${video}`, "_blank")
+            }
+          >
+            Youtube
+          </button>
         </div>
         <div className="game-banner">
           <div className="game-banner__genres">
             {genreIds.map((genreId, index) => {
-              return <Genre key={index} genreId={genreId} index={index}/>;
+              return <Genre key={index} genreId={genreId} index={index} />;
             })}
           </div>
         </div>
@@ -118,9 +150,13 @@ export default function DescriptionPage({user}) {
             </div>
             <div className="screenshots__slider-nav">
               {screenshots.map((screenshot, index) => {
-                  return (
-                    <a key={index} href={`#slide-${index}`} className="screenshots__slider-bullet"></a>
-                  )
+                return (
+                  <a
+                    key={index}
+                    href={`#slide-${index}`}
+                    className="screenshots__slider-bullet"
+                  ></a>
+                );
               })}
             </div>
           </div>

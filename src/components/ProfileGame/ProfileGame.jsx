@@ -1,9 +1,17 @@
 import "./ProfileGame.scss";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import trashcan from "../../assets/images/trashcan.png"
+import trashcan from "../../assets/images/trashcan.png";
 
-export default function ProfileGame({ game, played, userId, changeUser, setRefreshList }) {
+export default function ProfileGame({
+  game,
+  played,
+  userId,
+  changeUser,
+  setRefreshList,
+  setUserPlayedList,
+  setUserFutureList,
+}) {
   const navigate = useNavigate();
   const toGameDescriptionPage = () => {
     navigate(`/description/${game.igdb_id}`);
@@ -15,6 +23,11 @@ export default function ProfileGame({ game, played, userId, changeUser, setRefre
         data: { game_id: game.id },
       }
     );
+    setUserPlayedList((prev) =>
+      prev.filter((id) => {
+        return id !== game.igdb_id;
+      })
+    );
     setRefreshList((prev) => prev + 1);
   };
   const removeFutureGame = async () => {
@@ -24,13 +37,20 @@ export default function ProfileGame({ game, played, userId, changeUser, setRefre
         data: { game_id: game.id },
       }
     );
+    setUserFutureList((prev) =>
+      prev.filter((id) => {
+        return id !== game.igdb_id;
+      })
+    );
     setRefreshList((prev) => prev + 1);
   };
   return (
     <div className="profile-game">
       <button
         className={
-          played ? "profile-game__button played-shadow" : "profile-game__button future-shadow"
+          played
+            ? "profile-game__button played-shadow"
+            : "profile-game__button future-shadow"
         }
         onClick={toGameDescriptionPage}
       >
@@ -39,7 +59,11 @@ export default function ProfileGame({ game, played, userId, changeUser, setRefre
           <h3 className="profile-game__title">{game.title}</h3>
         </div>
       </button>
-      <img className="profile-game__delete" onClick={played ? removePlayedGame : removeFutureGame} src={trashcan}></img>
+      <img
+        className="profile-game__delete"
+        onClick={played ? removePlayedGame : removeFutureGame}
+        src={trashcan}
+      ></img>
     </div>
   );
 }

@@ -52,6 +52,11 @@
       box-shadow: none;
       translate: 0 3px;
     }
+    &--green{
+      background-color: rgb(129, 253, 129);
+      translate: 0 2px;
+      box-shadow: 0 1px 1px rgba(5, 123, 5, 0.542);
+    }
   }
   &-screenshots {
     display: flex;

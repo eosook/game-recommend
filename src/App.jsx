@@ -57,7 +57,7 @@ function App() {
             ></Route>
             <Route
               path="/description/:id"
-              element={<DescriptionPage user={user} userPlayedList={userPlayedList} userFutureList={userFutureList}/>}
+              element={<DescriptionPage user={user} userPlayedList={userPlayedList} userFutureList={userFutureList} setUserPlayedList={setUserPlayedList} setUserFutureList={setUserFutureList}/>}
             ></Route>
             <Route
               path="/login"
@@ -66,7 +66,7 @@ function App() {
             <Route path="/signup" element={<SignupPage user={user} />}></Route>
             <Route
               path="/profile/:id"
-              element={<ProfilePage user={user} changeUser={setUser} />}
+              element={<ProfilePage user={user} changeUser={setUser} setUserPlayedList={setUserPlayedList} setUserFutureList={setUserFutureList} />}
             ></Route>
             <Route path="/search" element={<SearchPage user={user} />}></Route>
           </Routes>
