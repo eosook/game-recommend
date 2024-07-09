@@ -3,7 +3,7 @@ import './Footer.scss'
 function Footer(){
     return (
         <div className="footer">
-            <p>FOOTER</p>
+            <p className="footer__text">Created by Eo Soo Kim</p>
         </div>
     )
 }
