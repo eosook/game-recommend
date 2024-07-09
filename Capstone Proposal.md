@@ -8,7 +8,7 @@ they would like to play.
 ### Problem
 
 With so many games to choose from these days, it can be time consuming finding a new game to you would like to play. This site makes it quick and
-easy to find game recommendations based on what you enjoy. People also 
+easy to find game recommendations based on what you enjoy. 
 
 ### User Profile
 
@@ -54,14 +54,19 @@ Home Page
     - will prompt user to enter games they enjoy
     - 3 bars in the middle to enter the games
     - under the form, there'll be a currently popular games section
+    - users will also be able to just search for any game theyd like
 
-Game Recommendation Page
-    - appears after user inputs their favourite games
-    - spits out a list of game recommendations
+Game Search Page
+    - Users can search for any game theyd like using the search bar.
+    - clicking on the title will bring them to the game description page
 
 Game Description Page
     - shows the game description, provides in-game pictures.
     - will be able to add the game to your already played list or would like to play list.
+
+Game Recommendation Page
+    - appears after user inputs their favourite games
+    - spits out a list of game recommendations
 
 Account Signup Page
     - page to create a new profile
@@ -90,6 +95,7 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
     - password - string
     - playedGames - list
     - futureGames - list
+
 
 ### Endpoints
 
@@ -164,13 +170,7 @@ RESPONSE:
 
 Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
 
-Auth will be added if there is extra time to add account feature.
-
-- JWT auth
-    - Before adding auth, all API requests will be using a fake user with id 1
-    - Added after core features have first been implemented
-    - Store JWT in localStorage, remove when a user logs out
-    - Add states for logged in showing different UI in places listed in mockups
+There is currently no auth in the project
 
 ## Roadmap
 
@@ -218,3 +218,11 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 
 Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
 
+- Add a button for users to expand the recommendation page.
+
+- Allow users to search popular games of a certain genre when clicking on a genre tag.
+
+- Allow users to move games from their wishlist to games they've played.
+
+- Track when the game was added or users can edit what year they had played that game.
+    - sort lists by year
