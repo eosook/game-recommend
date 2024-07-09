@@ -113,11 +113,11 @@ export default function DescriptionPage({
           </div>
         </div>
         <div className="game__buttons">
-          <button className={(played) ? `game__button game__button--green` : 'game__button'} onClick={addPlayedGame} disabled={played}>
+          <button className={(played) ? `game__button game__button--green` : 'game__button'} onClick={addPlayedGame} disabled={(user) ? played : true}>
             {(played) ? "Added" : `Played`}
             {(played) ? <img className="game__button--checkmark" src={checkmark}></img> : ""}
           </button>
-          <button className={(future) ? `game__button game__button--green` : 'game__button'} onClick={addFutureGame} disabled={future}>
+          <button className={(future) ? `game__button game__button--green` : 'game__button'} onClick={addFutureGame} disabled={(user) ? future : true}>
             {(future) ? "Added" : "Play Later"}
             {(future) ? <img className="game__button--checkmark" src={checkmark}></img> : ""}
           </button>

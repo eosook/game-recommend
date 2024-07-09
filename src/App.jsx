@@ -69,6 +69,7 @@ function App() {
             <Route path="/search" element={<SearchPage user={user} />}></Route>
           </Routes>
         </main>
+        <Footer />
       </BrowserRouter>
     </>
   );

@@ -40,4 +40,5 @@
 .recommend-button{
     @include button-submit;
     margin-left: 0.25rem;
+    font-weight: 700;
 }
