@@ -31,7 +31,6 @@ export default function DescriptionPage({
       const gameData = await axios.post(
         `http://localhost:8080/games/${gameId.id}`
       );
-      console.log(gameData.data);
       setName(gameData.data[0].name);
       setDescription(gameData.data[0].summary);
       setScreenshots(gameData.data[0].screenshots);
@@ -116,7 +115,7 @@ export default function DescriptionPage({
             {(played) ? "Added" : "Played"}
           </button>
           <button className={(future) ? `game__button game__button--green` : 'game__button'} onClick={addFutureGame} disabled={future}>
-            {(future) ? "Added" : "Played"}
+            {(future) ? "Added" : "Play Later"}
           </button>
           <button
             className="game__button"

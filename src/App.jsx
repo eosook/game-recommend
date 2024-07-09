@@ -25,7 +25,6 @@ function App() {
       listData.data.forEach((game) => {
         list.push(game.igdb_id);
       })
-      console.log(list);
       setUserPlayedList(list)
     }
     const getFutureList = async () => {
@@ -35,7 +34,6 @@ function App() {
       listData.data.forEach((game) => {
         list.push(game.igdb_id);
       })
-      console.log(list);
       setUserFutureList(list)
     }
     if (user){

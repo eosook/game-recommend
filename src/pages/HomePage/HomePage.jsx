@@ -47,13 +47,10 @@ function HomePage() {
   function selectGame(game, count) {
     if (count == 1) {
       setFavGameOne(game);
-      console.log(game);
     } else if (count == 2) {
       setFavGameTwo(game);
-      console.log(game);
     } else {
       setFavGameThree(game);
-      console.log(game);
     }
     setGameList([]);
     setGameCount(gameCount + 1);
