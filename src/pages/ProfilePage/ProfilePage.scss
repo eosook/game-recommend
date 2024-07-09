@@ -4,7 +4,9 @@
 
 .profile{
     &__header{
-        margin: 1rem 3rem;
+        margin: 0 5rem 1.5rem;
+        font-family: $game-font;
+        font-size: 1rem;
     }
     &__lists-container{
         @include input-container;
@@ -17,6 +19,7 @@
         font-size: 1.25rem;
         margin-left: 0.75rem;
         font-family: $game-font;
+        width: 300px;
     }
     &__played{
         width: 70%;

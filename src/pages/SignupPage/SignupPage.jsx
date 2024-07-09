@@ -24,16 +24,14 @@ export default function SignupPage() {
         navigate('/login', { state: { previousLocation: location.pathname }});
       }, 1500)
     } catch (error){
-      console.log(error);
       setFailedSignup(true)
       setFailedMessage(error.response.data.message);
-      console.log(error.response.data.message)
     }
   }
 
   return (
     <div className="login">
-      <h1>Sign Up</h1>
+      <h1 className="login__header">SIGNUP</h1>
       <div className="login__form">
         <label className="login__label">Username:</label>
         <input
@@ -57,7 +55,7 @@ export default function SignupPage() {
           Signup
         </button>
       </div>
-      <p className="login__error">
+      <p className={(failedMessage == "Signup Successful") ? "login__success" : "login__error"}>
         {failedMessage
           ? `${failedMessage}`
           : ""}

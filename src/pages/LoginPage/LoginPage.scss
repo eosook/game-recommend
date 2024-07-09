@@ -4,11 +4,15 @@
 
 .login{
     @include input-container;
+    min-height: 200px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
     &__header{
-        font-size: 2.5rem;
+        font-family: $game-font;
+        font-size: 2rem;
+        margin: 0 auto 1rem;
     }
     &__form{
         display: flex;
@@ -17,12 +21,27 @@
     }
     &__label{
         margin-bottom: 0.25rem;
+        font-weight: 700;
     }
     &__input{
         margin-bottom: 1rem;
+        padding: 0.25rem 1rem;
+        border-radius: 0.25rem;
     }
     &__button{
         @include button-submit;
         padding: 0.5rem 1rem;
+        font-weight: 900;
+        font-size: 1rem;
+    }
+    &__error{
+        margin: 0 auto;
+        font-size: 0.825rem;
+        color: rgb(255, 0, 0);
+    }
+    &__success{
+        margin: 0 auto;
+        font-size: 0.825rem;
+        color: rgb(67, 233, 67);
     }
 }

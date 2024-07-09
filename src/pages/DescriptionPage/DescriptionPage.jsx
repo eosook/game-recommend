@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Genre from "../../components/Genre/Genre";
 import Screenshots from "../../components/Screenshots/Screenshots";
+import checkmark from '../../assets/images/checkmark.png';
+import youtubeLogo from '../../assets/images/youtube.png';
 
 export default function DescriptionPage({
   user,
@@ -102,7 +104,7 @@ export default function DescriptionPage({
           <img className="game-cover" src={cover}></img>
           <div className="game-info">
             <div className="game-info__description">{description}</div>
-            <div className="">
+            <div className="game-info__additional">
               <div className="game-info__release-date">
                 Release Date: {releaseDate}
               </div>
@@ -112,18 +114,20 @@ export default function DescriptionPage({
         </div>
         <div className="game__buttons">
           <button className={(played) ? `game__button game__button--green` : 'game__button'} onClick={addPlayedGame} disabled={played}>
-            {(played) ? "Added" : "Played"}
+            {(played) ? "Added" : `Played`}
+            {(played) ? <img className="game__button--checkmark" src={checkmark}></img> : ""}
           </button>
           <button className={(future) ? `game__button game__button--green` : 'game__button'} onClick={addFutureGame} disabled={future}>
             {(future) ? "Added" : "Play Later"}
+            {(future) ? <img className="game__button--checkmark" src={checkmark}></img> : ""}
           </button>
           <button
-            className="game__button"
+            className="game__button game__button--youtube"
             onClick={() =>
               window.open(`https://www.youtube.com/watch?v=${video}`, "_blank")
             }
           >
-            Youtube
+            Youtube<img className="game__button--youtube-logo" src={youtubeLogo}></img>
           </button>
         </div>
         <div className="game-banner">

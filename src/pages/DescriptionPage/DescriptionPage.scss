@@ -8,7 +8,7 @@
   margin-top: 3rem;
   width: 90%;
   &__title{
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
   }
   &-banner {
@@ -23,6 +23,7 @@
   &-body {
     display: flex;
     padding-bottom: 2rem;
+    border-top: 2px solid $primary-color-one;
   }
   &-cover {
     height: 250px;
@@ -32,8 +33,13 @@
   }
   &-info {
     padding: 1rem 2rem;
+    &__additional{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     &__description{
-        margin-bottom: 1rem;
+        margin: 0.5rem 0 1rem;
     }
     &__rating{
       @include rating;
@@ -44,6 +50,9 @@
     gap: 1rem;
   }
   &__button{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
     width: 100px;
     padding: 0.25rem 1rem;
     border-radius: 10px;
@@ -56,6 +65,15 @@
       background-color: rgb(129, 253, 129);
       translate: 0 2px;
       box-shadow: 0 1px 1px rgba(5, 123, 5, 0.542);
+    }
+    &--checkmark{
+      width: 20px;
+    }
+    &--youtube{
+      width: 110px;
+    }
+    &--youtube-logo{
+      width: 30px;
     }
   }
   &-screenshots {

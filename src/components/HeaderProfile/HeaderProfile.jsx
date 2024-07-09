@@ -1,7 +1,5 @@
 import "./HeaderProfile.scss";
 import { useNavigate, useLocation } from "react-router-dom";
-import homeButton from "../../assets/images/Wood_circle_game_buttons.jpg";
-import logo from "../../assets/images/up.png";
 
 export default function HeaderProfile({ user, setUser }) {
   const navigate = useNavigate();

@@ -32,25 +32,27 @@
 }
 
 .played-shadow{
-    box-shadow: 3px 3px 5px $box-shadow-color-blue;
+    background-color: rgb(204, 245, 177);
+    box-shadow: 3px 3px 5px rgb(119, 214, 56);
     &:hover{
         translate: -5px -5px;
-        box-shadow: 8px 8px 5px $box-shadow-color-blue;
+        box-shadow: 8px 8px 5px rgb(119, 214, 56);
     }
     &:active{
         translate: 2px 2px;
-        box-shadow: 1px 1px 10px $box-shadow-color-blue;
+        box-shadow: 1px 1px 10px rgb(119, 214, 56);
     }
 }
 
 .future-shadow{
-    box-shadow: 3px 3px 5px $box-shadow-color-yellow;
+    background-color: rgb(165, 239, 244);
+    box-shadow: 3px 3px 5px rgb(25, 150, 150);
     &:hover{
         translate: -5px -5px;
-        box-shadow: 8px 8px 5px $box-shadow-color-yellow;
+        box-shadow: 8px 8px 5px rgb(25, 150, 150);
     }
     &:active{
         translate: 2px 2px;
-        box-shadow: 1px 1px 10px $box-shadow-color-yellow;
+        box-shadow: 1px 1px 10px rgb(25, 150, 150);
     }
 }

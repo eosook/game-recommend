@@ -62,7 +62,7 @@ export default function LoginPage({ setUser }) {
       </div>
       <p className="login__error">
         {successLogin == false
-          ? "You have entered a wrong username or password"
+          ? "Incorrect username or password"
           : ""}
       </p>
     </div>
