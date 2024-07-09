@@ -6,6 +6,8 @@ import trashcan from "../../assets/images/trashcan.png";
 export default function ProfileGame({
   game,
   played,
+  userId,
+  changeUser,
   setRefreshList,
   setUserPlayedList,
   setUserFutureList,
