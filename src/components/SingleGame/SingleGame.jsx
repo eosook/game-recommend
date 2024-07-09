@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import "./SingleGame.scss";
-import Genre from "../Genre/Genre";
 
 export default function SingleGame({ game }) {
   const navigate = useNavigate();

@@ -2,7 +2,6 @@ import "./DescriptionPage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Genre from "../../components/Genre/Genre";
 import Screenshots from "../../components/Screenshots/Screenshots";
 import checkmark from '../../assets/images/checkmark.png';

@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import GamesForm from "../../components/GamesForm/GamesForm";
 import RelatedSearch from "../../components/RelatedSearch/RelatedSearch";
-import HeaderProfile from "../../components/HeaderProfile/HeaderProfile";
 
 function HomePage() {
   const [gameList, setGameList] = useState([]);
