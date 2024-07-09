@@ -1,17 +1,15 @@
 import "./RecommendationPage.scss";
 import GamesList from "../../components/GamesList/GamesList";
-import HeaderProfile from "../../components/HeaderProfile/HeaderProfile";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
-function RecommendationPage() {
+function RecommendationPage({ userPlayedList, userFutureList }) {
   const location = useLocation();
   const [genreList, setGenreList] = useState([]);
   const [commonGenres, setCommonGenres] = useState([]);
   const [mostCommonGenres, setMostCommonGenres] = useState([]);
-  const { games, count} = location.state;
-  const [gameIds, setGameIds] = useState([])
+  const { games, count } = location.state;
+  const [gameIds, setGameIds] = useState([]);
 
   useEffect(() => {
     const findCommonGenres = async () => {
@@ -51,10 +49,10 @@ function RecommendationPage() {
     findCommonGenres();
     setGameIds([]);
     games.forEach((game) => {
-      if (game){
+      if (game) {
         setGameIds((idList) => [...idList, game.id]);
       }
-    })
+    });
   }, []);
   return (
     <div className="recommendation">
@@ -62,16 +60,18 @@ function RecommendationPage() {
         <h1 className="recommendation__header">Recommendations</h1>
       </header>
       <div className="recommendation__list">
-      <GamesList
-        commonGenres={
-          mostCommonGenres.length > 0
-            ? mostCommonGenres
-            : commonGenres.length > 0
-            ? commonGenres
-            : genreList
-        }
-        gameIds={gameIds}
-      />
+        <GamesList
+          commonGenres={
+            mostCommonGenres.length > 0
+              ? mostCommonGenres
+              : commonGenres.length > 0
+              ? commonGenres
+              : genreList
+          }
+          gameIds={gameIds}
+          userPlayedList={userPlayedList}
+          userFutureList={userFutureList}
+        />
       </div>
     </div>
   );

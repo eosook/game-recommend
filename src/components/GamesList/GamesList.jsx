@@ -4,19 +4,36 @@ import axios from "axios";
 import SingleGame from "../SingleGame/SingleGame";
 import Genre from "../Genre/Genre";
 
-function GamesList({ commonGenres, gameIds }) {
+function GamesList({ commonGenres, gameIds, userPlayedList, userFutureList }) {
   const [popularList, setPopularList] = useState([{ game_id: "", genres: [] }]);
   
   useEffect(() => {
+    const getPopularDataUser = async () => {
+      let playedList = userPlayedList.map((id) => parseInt(id))
+      let futureList = userFutureList.map((id) => parseInt(id))
+      const data = await axios.post(`http://localhost:8080/games/popular`, {
+        genres: commonGenres,
+        ids: gameIds,
+        played: playedList,
+        future: futureList
+      });
+      setPopularList(data.data);
+    };
     const getPopularData = async () => {
       const data = await axios.post(`http://localhost:8080/games/popular`, {
         genres: commonGenres,
         ids: gameIds,
+        played: ["1"],
+        future: ["1"]
       });
       setPopularList(data.data);
     };
     if (commonGenres.length > 0) {
-      getPopularData();
+      if (userPlayedList.length > 0 && userFutureList.length > 0){
+        getPopularDataUser();
+      } else {
+        getPopularData();
+      }
     }
   }, [commonGenres]);
   return (

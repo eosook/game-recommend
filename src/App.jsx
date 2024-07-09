@@ -53,7 +53,7 @@ function App() {
             <Route path="/" element={<HomePage user={user} />}></Route>
             <Route
               path="/recommendations"
-              element={<RecommendationPage user={user} />}
+              element={<RecommendationPage userPlayedList={userPlayedList} userFutureList={userFutureList}/>}
             ></Route>
             <Route
               path="/description/:id"
