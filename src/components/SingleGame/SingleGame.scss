@@ -1,0 +1,48 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+
+.single-game{
+    display: flex;
+    text-align: left;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(255, 138, 29, 0.049);
+    box-shadow: 3px 3px 5px $box-shadow-color;
+    &:hover{
+        translate: -5px -5px;
+        box-shadow: 8px 8px 5px $box-shadow-color;
+    }
+    &:active{
+        translate: 2px 2px;
+        box-shadow: 1px 1px 10px $box-shadow-color;
+    }
+    &__cover{
+        width: 120px;
+        height: 100px;
+        margin-top: 0.5rem;
+    }
+    &__info{
+        display: flex;
+        padding: 0 1rem;
+    }
+    &__info-container{
+        padding: 0 1rem;
+        width: 100%;
+    }
+    &__summary{
+        font-size: 11px;
+    }
+    &__genres{
+        font-size: 10px;
+        font-weight: 700;
+    }
+    &__rating{
+        @include rating;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+    }
+}

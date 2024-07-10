@@ -1,0 +1,85 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(243, 177, 138);
+  border-bottom: 2px solid rgb(86, 37, 8);
+  box-shadow: 0 5px rgb(141, 60, 13);
+  margin-bottom: 5px;
+  color: $primary-color_one;
+  height: 100px;
+  padding: 1rem 2rem;
+  &__logo {
+    font-size: 3rem;
+    line-height: 3rem;
+    text-shadow: 2px 2px black;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__route-buttons{
+    width: 30%;
+  }
+  &__profile-buttons{
+    display: flex;
+    justify-content: right;
+    width: 30%;
+  }
+  &__button {
+    @include button;
+    font-family: $game-font;
+  }
+
+  &__button--blue {
+    background-color: rgb(50, 190, 230);
+    color: rgb(149, 231, 254);
+    text-shadow: 1px 2px rgb(3, 49, 62);
+    box-shadow: 0 4px rgb(1, 143, 182);
+    border: 2px solid rgb(6, 133, 169);
+    &:hover {
+      box-shadow: 0 5px rgb(1, 143, 182);
+      translate: 0 -1px;
+    }
+    &:active {
+      box-shadow: 0 2px rgb(1, 143, 182);
+      translate: 0 2px;
+    }
+  }
+  &__button--green{
+    background-color: rgb(30, 226, 64);
+    color: rgb(10, 132, 31);
+    text-shadow: 1px 1px rgb(1, 117, 20);
+    box-shadow: 0 4px rgb(4, 174, 33);
+    border: 2px solid rgb(12, 189, 41);
+    &:hover {
+      box-shadow: 0 5px rgb(4, 174, 33);
+      translate: 0 -1px;
+    }
+    &:active {
+      box-shadow: 0 2px rgb(4, 174, 33);
+      translate: 0 2px;
+    }
+  }
+  &__button--red {
+    background-color: rgb(255, 80, 70);
+    color: rgba(184, 34, 34, 0.651);
+    text-shadow: 1px 1px rgb(155, 26, 19);
+    box-shadow: 0 4px rgb(166, 8, 0);
+    border: 2px solid rgb(127, 9, 3);
+    &:hover {
+      box-shadow: 0 5px rgb(166, 8, 0);
+      translate: 0 -1px;
+    }
+    &:active {
+      box-shadow: 0 2px rgb(166, 8, 0);
+      translate: 0 2px;
+    }
+  }
+}

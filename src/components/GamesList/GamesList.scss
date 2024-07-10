@@ -1,0 +1,7 @@
+.game-list{
+    &__genres{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,45 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+
+.genre{
+    @include genre;
+    padding: 0.25rem 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.genre-color{
+    &__one {
+        background-color: $genre-one;
+        box-shadow: 3px 3px 3px rgba($genre-one, 0.8);
+    }
+    &__two {
+        background-color: $genre-two;
+        box-shadow: 3px 3px 3px rgba($genre-two, 0.8);
+    }
+    &__three {
+        background-color: $genre-three;
+        box-shadow: 3px 3px 3px rgba($genre-three, 0.8);
+    }
+    &__four {
+        background-color: $genre-four;
+        box-shadow: 3px 3px 3px rgba($genre-four, 0.8);
+    }
+    &__five {
+        background-color: $genre-five;
+        box-shadow: 3px 3px 3px rgba($genre-five, 0.8);
+    }
+    &__six {
+        background-color: $genre-six;
+        box-shadow: 3px 3px 3px rgba($genre-six, 0.8);
+    }
+    &__seven {
+        background-color: $genre-seven;
+        box-shadow: 3px 3px 3px rgba($genre-seven, 0.8);
+    }
+    &__eight {
+        background-color: $genre-eight;
+        box-shadow: 3px 3px 3px rgba($genre-eight, 0.8);
+    }
+}

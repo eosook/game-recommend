@@ -1,0 +1,27 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.profile{
+    &__header{
+        margin: 0 5rem 1.5rem;
+        font-family: $game-font;
+        font-size: 1rem;
+    }
+    &__lists-container{
+        @include input-container;
+        display: flex;
+        padding: 3rem;
+        width: 750px;
+        margin: 0 auto;
+    }
+    &__list-header{
+        font-size: 1.25rem;
+        margin-left: 0.75rem;
+        font-family: $game-font;
+        width: 300px;
+    }
+    &__played{
+        width: 70%;
+    }
+}

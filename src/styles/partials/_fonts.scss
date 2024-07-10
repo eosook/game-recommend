@@ -1,0 +1,37 @@
+@font-face {
+  font-family: Poppins;
+  src: url("../../assets/fonts/Poppins-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("../../assets/fonts/Poppins-Medium.ttf");
+  font-style: medium;
+  font-weight: 500;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url("../../assets/fonts/Poppins-Bold.ttf");
+    font-style: bold;
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: Poppins;
+    src: url("../../assets/fonts/Poppins-Black.ttf");
+    font-style: extrabold;
+    font-weight: 900;
+  }
+
+@font-face{
+  font-family: PressStart;
+  src: url("../../assets/fonts/PressStart2P-Regular.ttf");
+  font-style: regular;
+  font-weight: 400;
+}
+
+$primary-font: Poppins, Arial, Helvetica, sans-serif;
+$game-font: PressStart, Arial, Helvetica, sans-serif;

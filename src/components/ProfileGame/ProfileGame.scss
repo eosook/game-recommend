@@ -1,0 +1,58 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+
+.profile-game{
+    display: flex;
+    &__button{
+        display: flex;
+        width: 260px;
+        text-align: left;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 20px;
+        border: none;
+    }
+    &__image{
+        min-width: 80px;
+        height: 100px;
+    }
+    &__title{
+        margin-left: 1rem;
+    }
+    &__delete{
+        margin-left: 0.5rem;
+        margin-top: 1.5rem;
+        width: 40px;
+        height: 40px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.played-shadow{
+    background-color: rgb(204, 245, 177);
+    box-shadow: 3px 3px 5px rgb(119, 214, 56);
+    &:hover{
+        translate: -5px -5px;
+        box-shadow: 8px 8px 5px rgb(119, 214, 56);
+    }
+    &:active{
+        translate: 2px 2px;
+        box-shadow: 1px 1px 10px rgb(119, 214, 56);
+    }
+}
+
+.future-shadow{
+    background-color: rgb(165, 239, 244);
+    box-shadow: 3px 3px 5px rgb(25, 150, 150);
+    &:hover{
+        translate: -5px -5px;
+        box-shadow: 8px 8px 5px rgb(25, 150, 150);
+    }
+    &:active{
+        translate: 2px 2px;
+        box-shadow: 1px 1px 10px rgb(25, 150, 150);
+    }
+}

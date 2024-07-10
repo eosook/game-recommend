@@ -1,0 +1,19 @@
+@use "./styles/partials/colors" as *;
+@use "./styles/partials/fonts" as *;
+@use "./styles/partials/mixins" as *;
+
+//global resets
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main__background{
+  background-color: $primary-color_four;
+  padding: 3rem 0;
+} 

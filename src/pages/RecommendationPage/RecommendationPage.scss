@@ -1,0 +1,13 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.recommendation{
+    @include input-container;
+    width: 70%;
+    padding: 2rem 3rem;
+    &__header{
+        font-family: $game-font;
+        padding: 1rem 0;
+    }
+}

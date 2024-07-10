@@ -1,0 +1,79 @@
+@use './colors' as *;
+@use './fonts' as *;
+
+@mixin input-container{
+    min-height: 500px;
+    width: 600px;
+    margin: 0 auto;
+    background-color: $primary-color_two;
+    color: $primary-color_one;
+    border: 2px solid $primary-color_one;
+    border-radius: 30px;
+    padding: 2rem 3rem;
+    box-shadow: 5px 10px 20px $primary-color_one;
+}
+
+@mixin genre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 120px;
+}
+
+@mixin rating{
+    font-weight: 700;
+    font-size: 20px;
+    height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    background-color: #00CE7A;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin button{
+    font-size: 0.625rem;
+    text-align: center;
+    margin: 5px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: lightgray;
+    text-shadow: 1px 1px white;
+    color: gray;
+    border-radius: 8px;
+    box-shadow: 0 4px gray;
+    cursor: pointer;
+    &:hover{
+        box-shadow: 0 5px gray;
+        translate: 0 -1px;
+    }
+    &:active{
+        box-shadow: 0 2px gray;
+        translate: 0 2px;
+    }
+}
+
+@mixin button-submit{
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 3px #7D7E75;
+    background-color: $primary-color_five;
+    &:enabled{
+        color: $primary-color_one;
+    }
+    &:hover:enabled{
+        transform: translateY(-2px);
+        box-shadow: 0 5px #7D7E75;
+    }
+    &:active:enabled{
+        transform: translateY(2px);
+        box-shadow: 0 1px #7D7E75;
+    }
+}

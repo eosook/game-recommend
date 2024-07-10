@@ -1,0 +1,26 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.games-form{
+    &__form{
+        display: flex;
+        margin-bottom: 1rem;
+    }
+    &__input{
+        display: block;
+        width: 250px;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 5px 5px $primary-color_one;
+        background-color: $primary-color_two;
+        &:disabled{
+            box-shadow: none;
+            translate: 5px 5px;
+            background-color: $primary-color_three;
+        }
+        &:active{
+            border:none;
+        }
+    }
+}
