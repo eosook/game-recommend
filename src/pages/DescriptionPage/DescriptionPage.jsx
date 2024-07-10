@@ -23,7 +23,6 @@ export default function DescriptionPage({
   const [releaseDate, setReleaseDate] = useState(null);
   const [video, setVideo] = useState(null);
   const [cover, setCover] = useState("");
-  const [platforms, setPlatforms] = useState([]);
   const [played, setPlayed] = useState(false);
   const [future, setFuture] = useState(false);
 
